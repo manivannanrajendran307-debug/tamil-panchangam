@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#6b21a8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Ålesund Tamil Panchangam</title>
+<style>
+:root{--p:#6b21a8;--bg:#faf7fc;--card:#fff;--muted:#666;--good:#166534;--bad:#991b1b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:#222}
+header{background:var(--p);color:#fff;padding:18px 16px 14px;position:sticky;top:0;z-index:5}h1{font-size:21px;margin:0 0 4px}header small{opacity:.9}
+main{max-width:900px;margin:auto;padding:14px}.toolbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}.toolbar button,.toolbar input{padding:11px;border:1px solid #ddd;border-radius:10px;background:#fff;font-size:15px}
+.card{background:var(--card);border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 1px 5px #0001}.dateRow{display:flex;justify-content:space-between;gap:10px;align-items:center}.date{font-size:22px;font-weight:700}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px}.item{padding:10px;background:#f7f7f8;border-radius:10px}.good{color:var(--good);font-weight:600}.bad{color:var(--bad);font-weight:600}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:7px;border-bottom:1px solid #eee}th{background:#fafafa;position:sticky;top:75px}.controls{display:flex;gap:8px;align-items:center}.controls input{flex:1}.nav{display:flex;gap:8px}.nav button{flex:1}.source a{color:var(--p);text-decoration:none}.note{font-size:12px;color:#666;line-height:1.45}
+</style>
+</head>
+<body>
+<header><h1>Ålesund Tamil Panchangam</h1><small>Horai • Gowri Panchangam • Tamil Calendar • Local solar times</small></header>
+<main>
+<div class="toolbar">
+<button onclick="go(-1)">‹ Previous day</button><button onclick="go(1)">Next day ›</button>
+</div>
+<div class="card">
+<div class="controls"><input id="date" type="date" min="2026-11-18" max="2037-12-31"><button onclick="showSelected()">Go</button></div>
+</div>
+<div id="app"></div>
+<div class="card source"><b>Reference sources</b><div><a target="_blank" href="https://www.drikpanchang.com/tamil/tamil-gowri-panchangam.html">Drik Panchang – Tamil Gowri Panchangam</a></div><div><a target="_blank" href="https://www.tamildailycalendar.com/tamil_daily_calendar.php">Tamil Daily Calendar</a></div><p class="note">This app calculates the local solar clock for Ålesund (62.4723°N, 6.1495°E). Traditional Horai/Gowri meanings are cultural/astrological conventions, not scientific predictions. For exact religious observance, compare the date with your preferred local Tamil panchangam.</p></div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
+<script src="app.js"></script>
+</body></html>
