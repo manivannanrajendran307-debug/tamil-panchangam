@@ -36,7 +36,7 @@ function norm(x){x%=360;return x<0?x+360:x}
 function siderealSun(date){return norm(Astronomy.SunPosition(date).elon-ayanamsa(date))}
 function moonSidereal(date){return norm(Astronomy.EclipticGeoMoon(date).elon-ayanamsa(date))}
 function elong(date){return Astronomy.PairLongitude(Astronomy.Body.Moon,Astronomy.Body.Sun,date)}
-function sunriseSet(d){let noon=new Date(d);noon.setHours(12,0,0,0);let rise=Astronomy.SearchRiseSet(Astronomy.Body.Sun,OBS,-1,noon,1);let set=Astronomy.SearchRiseSet(Astronomy.Body.Sun,OBS,1,noon,1);return {rise:rise?rise.date:null,set:set?set.date:null}}
+function sunriseSet(d){let noon=new Date(d);noon.setHours(12,0,0,0);let rise=Astronomy.SearchRiseSet(Astronomy.Body.Sun,OBS,1,noon,1);let set=Astronomy.SearchRiseSet(Astronomy.Body.Sun,OBS,-1,noon,1);return {rise:rise?rise.date:null,set:set?set.date:null}}
 function nextDayRise(d){let n=new Date(d);n.setDate(n.getDate()+1);return sunriseSet(n).rise}
 function segments(a,b,n){let out=[],step=(b.getTime()-a.getTime())/n;for(let i=0;i<n;i++)out.push([new Date(a.getTime()+i*step),new Date(a.getTime()+(i+1)*step)]);return out}
 function gowri(d){let s=sunriseSet(d),n=nextDayRise(d);return {day:segments(s.rise,s.set,8).map((x,i)=>[x[0],x[1],GDAY[d.getDay()][i]]),night:segments(s.set,n,8).map((x,i)=>[x[0],x[1],GNIGHT[d.getDay()][i]])}}
